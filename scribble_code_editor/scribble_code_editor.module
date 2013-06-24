@@ -1,0 +1,61 @@
+<?php
+
+/**
+ * Implements hook_menu()
+ */
+
+function scribble_code_editor_menu ( ) {
+	$menu = array ( );
+
+	$menu['code/new'] = array ( 
+		'title' => 'New Page',
+		'description' => 'Add a file to your code base',
+		'page callback' => 'drupal_get_form',
+		'page arguments' => array('scribble_code_new'),
+        'access callback' => TRUE,
+        'type' => MENU_CALLBACK,
+	);
+
+	/*
+	$menu['code/modify/%'] = array (
+		'title' => 'Appointment Modify',
+		'description' => 'Modify an appointment and send changes to QUEST through their API',
+		'page callback' => 'drupal_get_form',
+		'page arguments' => array('appointment_modify_form'),
+        'access callback' => TRUE,
+        'type' => MENU_CALLBACK,
+	);
+
+	$menu['code/delete/%'] = array (
+		'title' => 'Appointment Cancel',
+		'description' => 'Cancel an appointment using the Quest API',
+		'page callback' => 'drupal_get_form',
+		'page arguments' => array('appointment_cancel_form'),
+        'access callback' => TRUE,
+        'type' => MENU_CALLBACK,
+	);
+	*/
+
+	return $menu;
+}
+
+/*
+	Implements hook_form()
+*/
+
+function scribble_code_new_form ( $form, &$form_state ) {
+	$form['submit'] = array (
+		'#type' => 'submit',
+		'#value' => 'Save',
+	);
+
+	return $form;
+}
+
+/*
+	Implements hook_form_submit()
+*/
+
+function scribble_code_new_form_submit ( $form , &$form_state ) {
+	
+}
